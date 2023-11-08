@@ -1,19 +1,24 @@
 import { AiFillPlayCircle } from 'react-icons/ai';
-import React from 'react';
+import React, { useState } from 'react';
 import brandLogo from '../../img/icon/brandLogo.png';
 import { Link } from 'react-router-dom';
+import ModalQuantityPeople from 'components/ModalQuantityPeople/ModalQuantityPeople';
 
-const HomePage = ({ onButtonClick }) => {
+export default function HomePage() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const handleToggleModalOpen = event => {
+    setIsOpenModal(true);
+  };
+
   return (
     <div>
-      <Link to="/activities">
-        <button onClick={onButtonClick}>
-          <img src={brandLogo}></img>
-        </button>
-      </Link>
+      <button onClick={handleToggleModalOpen}>
+        <img src={brandLogo}></img>
+      </button>
+
       <h2>START BREAK</h2>
+      {isOpenModal && <ModalQuantityPeople />}
     </div>
   );
-};
-
-export default StartBreak;
+}

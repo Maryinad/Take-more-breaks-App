@@ -1,13 +1,20 @@
 import React from 'react';
+import close from '../../img/icon/close.png';
+import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 
-const ModalQuantityPeople = () => {
+export default function () {
   return (
     <div>
-      <p>How many people are you?</p>
-      <button>Only me</button>
-      <button>More that 1 person</button>
+      <div>
+        <p>How many people are you?</p>
+        <Link to="/activities">
+          <button>Only me</button>
+        </Link>
+        <Link to="/activities">
+          <button>More that 1 person</button>
+        </Link>
+      </div>
     </div>
   );
-};
-
-export default ModalQuantityPeople;
+}

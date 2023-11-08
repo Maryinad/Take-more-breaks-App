@@ -1,11 +1,9 @@
-import { ErrorPage } from 'pages/ErrorPage/ErrorPage';
-import { HomePage } from 'pages/HomePage/HomePage';
-import { ActivitiesPage } from 'pages/ActivitiesPage/ActivitiesPage';
-import { DonePage } from 'pages/DonePage/DonePage';
-import Activites from './Activites/Activites';
-
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import HomePage from 'pages/HomePage/HomePage';
+import DonePage from 'pages/DonePage/DonePage';
+import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { ActivitiesPage } from 'pages/ActivitiesPage/ActivitiesPage';
 
 // import DoneActivites from './DoneActivites/DoneActivites';
 // import ModalQuantityPeople from './ModalQuantityPeople/ModalQuantityPeople';
@@ -45,7 +43,7 @@ export const App = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/activities" element={<ActivitiesPage />}></Route>
         <Route path="/done" element={<DonePage />}></Route>
-        <Route path="*" element={<ErrorPage />} />
+        {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
     </div>
   );
