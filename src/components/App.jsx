@@ -41,9 +41,16 @@ export const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/activities" element={<ActivitiesPage />}></Route>
+        <Route
+          path="/activities"
+          element={<ActivitiesPage multi="false" />}
+        ></Route>
+        <Route
+          path="/activitiesMulti"
+          element={<ActivitiesPage multi="true" />}
+        ></Route>
         <Route path="/done" element={<DonePage />}></Route>
-        {/* <Route path="*" element={<ErrorPage />} /> */}
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

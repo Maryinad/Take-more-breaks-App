@@ -4,25 +4,25 @@ import { useState, useEffect } from 'react';
 import activityImage from '../../img/Activity.png';
 import { Link } from 'react-router-dom';
 
-export function ActivitiesPage() {
+export function ActivitiesPage(props) {
   const [activities, setActivities] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [doneActivites, setDoneActivites] = useState(false);
-
-  const handleDoneActivites = () => {
-    setDoneActivites(true);
-  };
-
   async function fetchData() {
     setLoading(true);
     setError('');
-
+    let response;
     try {
-      const response = await axios.get(
-        `https://www.boredapi.com/api/activity?participants=1`
-      );
+      if (props.multi === 'true') {
+        response = await axios.get(
+          `https://www.boredapi.com/api/activity?participants=2`
+        );
+      } else {
+        response = await axios.get(
+          `https://www.boredapi.com/api/activity?participants=1`
+        );
+      }
       setActivities(response.data);
     } catch (error) {
       alert('Ooops, something went wrong');

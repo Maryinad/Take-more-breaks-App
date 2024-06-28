@@ -1,7 +1,6 @@
-import { AiFillPlayCircle } from 'react-icons/ai';
 import React, { useState } from 'react';
 import brandLogo from '../../img/icon/brandLogo.png';
-import { Link } from 'react-router-dom';
+
 import ModalQuantityPeople from 'components/ModalQuantityPeople/ModalQuantityPeople';
 
 export default function HomePage() {
@@ -11,6 +10,11 @@ export default function HomePage() {
     setIsOpenModal(true);
   };
 
+  const onClose = () => {
+    setIsOpenModal(false);
+    document.body.classList.remove('noScrool');
+  };
+
   return (
     <div>
       <button onClick={handleToggleModalOpen}>
@@ -18,7 +22,9 @@ export default function HomePage() {
       </button>
 
       <h2>START BREAK</h2>
-      {isOpenModal && <ModalQuantityPeople />}
+      {isOpenModal && (
+        <ModalQuantityPeople onClose={onClose} isOpenModal={isOpenModal} />
+      )}
     </div>
   );
 }
